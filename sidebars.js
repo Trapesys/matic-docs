@@ -1136,6 +1136,7 @@ module.exports = {
         "edge/get-started/cli-commands",
         "edge/get-started/json-rpc-commands",
         "edge/get-started/terraform-aws-deployment",
+        "edge/get-started/gcp-marketplace-deployment",
       ],
     },
     {
