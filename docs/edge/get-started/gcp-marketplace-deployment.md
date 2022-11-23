@@ -13,7 +13,7 @@ keywords:
 
 # Polygon Edge Documentation & Post Deployment Script Manual
 
-**Points to be remembered when deploying the polygon Edge product from Google Marketplace**
+## Points to be remembered when deploying the polygon Edge product from Google Marketplace
 
 - This product is offered in the form of  four node architecture. Four nodes spanning across four availability zones spanning two or more regions gives higher tolerance in case of any issues with the either availability zone or region.
 - The customer can launch all the four nodes in a single region spanning multiple availability zones (or) can launch two nodes in one region and another two nodes in another region (or) can launch each node in one availability zone belonging to one region thus spanning across four regions.
@@ -33,7 +33,7 @@ keywords:
 
 ## Post Deployment Script Manual for polygon Edge
 
-**Prerequisites:**
+### Prerequisites:
 - Successful Completion of polygon Edge VM’s Deployment from the Marketplace.
 - For a production grade setup, a public DNS domain with privileges to modify the nameservers is required.
 - The operator who executes the post deployment script must have the following roles - roles/compute.admin, roles/dns.admin. Basic roles such as Editor or Owner roles can also be given.
@@ -41,24 +41,24 @@ keywords:
 - gcloud CLI installed with the latest version. Click [here](https://cloud.google.com/sdk/docs/install) for instructions.
 - gcloud CLI configured under the same project where the polygon Edge product has been deployed. Click [here](https://cloud.google.com/sdk/docs/configurations) for the steps to set up.
 
-**Components:**
+### Components:
 The below components gets provisioned when the post deployment script gets executed successfully:
 - SSL Certificate(If you don’t have one).
 - Network Endpoint Groups(NEG’s)
 - Global Load Balancer
 - Managed Zone(If you don’t have one)
 
-**SSL Certificate:**
+### SSL Certificate:
 - Users can use an existing certificate created within GCP by giving the certificate name when the post deployment script asks.
 - Users might have a certificate that was created using third party providers like letsencrypt or zerossl etc. Users can pass the certificate pem file and private key files absolute paths which were saved on the local file system where the script is getting executed. The script then creates a certificate in the GCP using those files. The created certificate will then be associated with the load balancer and makes the requests secure.
 - Users can create a new certificate within GCP and this can be done by letting the script know that the user doesn’t have an existing certificate or doesn’t have a certificate pem and private key files while running the script.
 
-**Managed Zone:**
+### Managed Zone:
 The script is designed to either use an existing Managed Zone or create a new Managed Zone in the project.
 - Users can create a new Managed Zone by letting the script know that the user doesn’t have an existing zone created for the domain.
 - Users can also input the name of the existing managed zone to the script.
 
-#### Script Execution:
+## Script Execution:
      $ bash gcp-marketplace-postdeployment.sh
 - The script code is available in this repo in the path docs/edge/assets/gcp-marketplace-postdeployment.sh
 - The script is interactive with a couple of questions. The script might take around 4 minutes to complete.
@@ -85,15 +85,16 @@ The script is designed to either use an existing Managed Zone or create a new Ma
 - The below screenshot shows the domain name servers were updated with managed zone name servers.
   ![](/img/edge/assets/images/image13.png)
 
-**NOTE:**
+:::info NOTE
 It is your responsibility to update the managed zone name servers details in your domain registrar Nameservers section. If you chose to create a new ssl certificate in gcp then the certificate won’t be provisioned successfully for the domain until the managed zone nameservers are updated in your domain registrar Nameservers section. Certificate issuing process and domain name propagation might take a few hours to a maximum of 3 days. Although it gets completed in a couple hours in most cases.
+:::
 
-#### Destroying:
+## Destroying the created resources
 Created resources are categorized into two types:
 - Resources created from Marketplace deployment(The VM’s in this case)
 - Resources created by executing the post deployment script(LB,SSL and DNS record sets)
 
-**Destroying the created resources:** Destroying the resources should happen in an order. 
+Destroying the resources should happen in an order. 
 Firstly, the resources created using the post deployment script need to be deleted.
 - The below screenshot shows the options that display when “destroy” is selected.
   ![](/img/edge/assets/images/image14.png)
