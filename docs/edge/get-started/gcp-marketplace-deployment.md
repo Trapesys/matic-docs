@@ -63,27 +63,27 @@ The script is designed to either use an existing Managed Zone or create a new Ma
 - The script code is available in this repo in the path docs/edge/assets/gcp-marketplace-postdeployment.sh
 - The script is interactive with a couple of questions. The script might take around 4 minutes to complete.
 - The below screenshot shows how the script behaves when a user gives invalid inputs (or) input the script that the user doesn’t have a domain name.
-  ![](/docs/edge/assets/images/image1.png)
+  ![](/img/edge/assets/images/image1.png)
 - The below screenshot shows the creation of a new SSL certificate.
-  ![](/docs/edge/assets/images/image2.png)
+  ![](/img/edge/assets/images/image2.png)
 - The below screenshot shows the creation of a new SSL certificate by importing the user provided certificate pem and private pem files.
-  ![](/docs/edge/assets/images/image3.png)
+  ![](/img/edge/assets/images/image3.png)
 - The below screenshot shows how an existing SSL certificate can be inputted to the script.
-  ![](/docs/edge/assets/images/image4.png)
-  ![](/docs/edge/assets/images/image5.png)
+  ![](/img/edge/assets/images/image4.png)
+  ![](/img/edge/assets/images/image5.png)
 - The below screenshot shows the LoadBalancer creation process.
-  ![](/docs/edge/assets/images/image6.png)
-  ![](/docs/edge/assets/images/image7.png)
+  ![](/img/edge/assets/images/image6.png)
+  ![](/img/edge/assets/images/image7.png)
 - The below screenshot shows the creation of a new managed zone.
-  ![](/docs/edge/assets/images/image8.png)
+  ![](/img/edge/assets/images/image8.png)
 - The below screenshot shows the created Managed zone and its name server details.
-  ![](/docs/edge/assets/images/image9.png)
-  ![](/docs/edge/assets/images/image10.png)
+  ![](/img/edge/assets/images/image9.png)
+  ![](/img/edge/assets/images/image10.png)
 - The name servers of the created managed zone
-  ![](/docs/edge/assets/images/image11.png)
-  ![](/docs/edge/assets/images/image12.png)
+  ![](/img/edge/assets/images/image11.png)
+  ![](/img/edge/assets/images/image12.png)
 - The below screenshot shows the domain name servers were updated with managed zone name servers.
-  ![](/docs/edge/assets/images/image13.png)
+  ![](/img/edge/assets/images/image13.png)
 
 **NOTE:**
 It is your responsibility to update the managed zone name servers details in your domain registrar Nameservers section. If you chose to create a new ssl certificate in gcp then the certificate won’t be provisioned successfully for the domain until the managed zone nameservers are updated in your domain registrar Nameservers section. Certificate issuing process and domain name propagation might take a few hours to a maximum of 3 days. Although it gets completed in a couple hours in most cases.
@@ -96,29 +96,29 @@ Created resources are categorized into two types:
 **Destroying the created resources:** Destroying the resources should happen in an order. 
 Firstly, the resources created using the post deployment script need to be deleted.
 - The below screenshot shows the options that display when “destroy” is selected.
-  ![](/docs/edge/assets/images/image14.png)
+  ![](/img/edge/assets/images/image14.png)
 - The below screenshot shows the destroying process when “LoadBalancer” is selected.
-  ![](/docs/edge/assets/images/image15.png)
+  ![](/img/edge/assets/images/image15.png)
 - The below screenshot shows the destroying process when “SSL Certificate” is selected.
-  ![](/docs/edge/assets/images/image16.png)
+  ![](/img/edge/assets/images/image16.png)
 - The below screenshot shows the destroying process when “DNS Record Set'' is selected.
-  ![](/docs/edge/assets/images/image17.png)
+  ![](/img/edge/assets/images/image17.png)
 - The below screenshot shows the destroying process when “DNS Record Set & Managed Zone” is selected.
-  ![](/docs/edge/assets/images/image18.png)
+  ![](/img/edge/assets/images/image18.png)
 - The below screenshot shows the destroying process when “All of the above” options are selected.
-  ![](/docs/edge/assets/images/image19.png)
-  ![](/docs/edge/assets/images/image20.png)
+  ![](/img/edge/assets/images/image19.png)
+  ![](/img/edge/assets/images/image20.png)
 
 Secondly, the resources created from the marketplace should be deleted. The below screenshot shows how those resources can be deleted from Deployment manager.
-  ![](/docs/edge/assets/images/image21.png)
+  ![](/img/edge/assets/images/image21.png)
   
 Third, The secrets created in the secrets manager should be deleted. Each Node will have two secrets. Network Key and Validator Key. So for four nodes total of eight secrets need to be deleted. The below screenshot shows the deletion of secrets from secrets manager console.
-  ![](/docs/edge/assets/images/image22.png)
+  ![](/img/edge/assets/images/image22.png)
 
 Fourth, The temporary bucket created to store the node details and genesis file should be deleted. In order to delete a bucket, first it should be made empty, so delete the objects first and then delete the bucket. The below two screenshots shows the objects deletion and bucket deletion process.
-  ![](/docs/edge/assets/images/image23.png)
-  ![](/docs/edge/assets/images/image24.png)
+  ![](/img/edge/assets/images/image23.png)
+  ![](/img/edge/assets/images/image24.png)
 
 At last remove the access to the created service accounts and then delete the service accounts. The below two screenshots shows the steps to remove roles from a service account and then delete the service accounts.
-  ![](/docs/edge/assets/images/image25.png)
-  ![](/docs/edge/assets/images/image26.png)
+  ![](/img/edge/assets/images/image25.png)
+  ![](/img/edge/assets/images/image26.png)
