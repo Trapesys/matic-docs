@@ -11,7 +11,7 @@ keywords:
   - marketplace
 ---
 
-# GCP Marketplace Depoloyment & Post Deployment Script Manual
+# GCP Marketplace Deployment & Post Deployment Script Manual
 
 ## Points to be remembered when deploying the Polygon Edge product from Google Marketplace
 
