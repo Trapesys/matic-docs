@@ -60,29 +60,63 @@ The script is designed to either use an existing Managed Zone or create a new Ma
 
 ## Script Execution:
      $ bash gcp-marketplace-postdeployment.sh
-- The script code is available in this repo in the path docs/edge/assets/gcp-marketplace-postdeployment.sh
+- The script code is available for download [here](/img/edge/assets/gcp-marketplace-postdeployment.sh).
 - The script is interactive with a couple of questions. The script might take around 4 minutes to complete.
 - The below screenshot shows how the script behaves when a user gives invalid inputs (or) input the script that the user doesn’t have a domain name.
+
   ![](/img/edge/assets/images/image1.png)
+
+
 - The below screenshot shows the creation of a new SSL certificate.
+
   ![](/img/edge/assets/images/image2.png)
+
+
+
 - The below screenshot shows the creation of a new SSL certificate by importing the user provided certificate pem and private pem files.
+
   ![](/img/edge/assets/images/image3.png)
+
+
 - The below screenshot shows how an existing SSL certificate can be inputted to the script.
+
   ![](/img/edge/assets/images/image4.png)
+
+
+- The below screenshots show the LoadBalancer creation process.
+
   ![](/img/edge/assets/images/image5.png)
-- The below screenshot shows the LoadBalancer creation process.
+
+  ---
   ![](/img/edge/assets/images/image6.png)
+
   ![](/img/edge/assets/images/image7.png)
+
+
 - The below screenshot shows the creation of a new managed zone.
+
   ![](/img/edge/assets/images/image8.png)
-- The below screenshot shows the created Managed zone and its name server details.
+
+
+- The below screenshots show the created Managed zone and its name server details.
+
   ![](/img/edge/assets/images/image9.png)
+
+  ---
+
   ![](/img/edge/assets/images/image10.png)
+
+
 - The name servers of the created managed zone
+
   ![](/img/edge/assets/images/image11.png)
+
+  ---
+
   ![](/img/edge/assets/images/image12.png)
+
 - The below screenshot shows the domain name servers were updated with managed zone name servers.
+
   ![](/img/edge/assets/images/image13.png)
 
 :::info NOTE
@@ -94,32 +128,67 @@ Created resources are categorized into two types:
 - Resources created from Marketplace deployment(The VM’s in this case)
 - Resources created by executing the post deployment script(LB,SSL and DNS record sets)
 
-Destroying the resources should happen in an order. 
-Firstly, the resources created using the post deployment script need to be deleted.
+Destroying the resources should happen in an order: <br/>
+
+---
+**1. The resources created using the post deployment script need to be deleted.**
 - The below screenshot shows the options that display when “destroy” is selected.
+
   ![](/img/edge/assets/images/image14.png)
+
 - The below screenshot shows the destroying process when “LoadBalancer” is selected.
+
   ![](/img/edge/assets/images/image15.png)
+
 - The below screenshot shows the destroying process when “SSL Certificate” is selected.
+
   ![](/img/edge/assets/images/image16.png)
+
 - The below screenshot shows the destroying process when “DNS Record Set'' is selected.
+
   ![](/img/edge/assets/images/image17.png)
+
 - The below screenshot shows the destroying process when “DNS Record Set & Managed Zone” is selected.
+
   ![](/img/edge/assets/images/image18.png)
-- The below screenshot shows the destroying process when “All of the above” options are selected.
+
+- The below screenshots show the destroying process when “All of the above” options are selected.
+
   ![](/img/edge/assets/images/image19.png)
+
   ![](/img/edge/assets/images/image20.png)
 
-Secondly, the resources created from the marketplace should be deleted. The below screenshot shows how those resources can be deleted from Deployment manager.
+---
+
+**2. The resources created from the marketplace should be deleted.** <br/>
+ The below screenshot shows how those resources can be deleted from Deployment manager.
+
   ![](/img/edge/assets/images/image21.png)
-  
-Third, The secrets created in the secrets manager should be deleted. Each Node will have two secrets. Network Key and Validator Key. So for four nodes total of eight secrets need to be deleted. The below screenshot shows the deletion of secrets from secrets manager console.
+
+---
+
+**3. The secrets created in the secrets manager should be deleted.** <br/>
+ Each Node will have two secrets. Network Key and Validator Key. So for four nodes total of eight secrets need to be deleted. The below screenshot shows the deletion of secrets from secrets manager console.
+
   ![](/img/edge/assets/images/image22.png)
 
-Fourth, The temporary bucket created to store the node details and genesis file should be deleted. In order to delete a bucket, first it should be made empty, so delete the objects first and then delete the bucket. The below two screenshots shows the objects deletion and bucket deletion process.
+---
+
+**4. The temporary bucket created to store the node details and genesis file should be deleted.** <br/>In order to delete a bucket, first it should be made empty, so delete the objects first and then delete the bucket. The below two screenshots shows the objects deletion and bucket deletion process.
+
   ![](/img/edge/assets/images/image23.png)
+
   ![](/img/edge/assets/images/image24.png)
 
-At last remove the access to the created service accounts and then delete the service accounts. The below two screenshots shows the steps to remove roles from a service account and then delete the service accounts.
+---
+
+**5. Remove the access to the created service accounts and then delete the service accounts.** <br/>
+The below two screenshots shows the steps to remove roles from a service account and then delete the service accounts.
+
   ![](/img/edge/assets/images/image25.png)
+
+  ---
+
   ![](/img/edge/assets/images/image26.png)
+
+---
