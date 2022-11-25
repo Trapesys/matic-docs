@@ -13,7 +13,7 @@ keywords:
 
 # Polygon Edge Documentation & Post Deployment Script Manual
 
-## Points to be remembered when deploying the polygon Edge product from Google Marketplace
+## Points to be remembered when deploying the Polygon Edge product from Google Marketplace
 
 - This product is offered in the form of  four node architecture. Four nodes spanning across four availability zones spanning two or more regions gives higher tolerance in case of any issues with the either availability zone or region.
 - The customer can launch all the four nodes in a single region spanning multiple availability zones (or) can launch two nodes in one region and another two nodes in another region (or) can launch each node in one availability zone belonging to one region thus spanning across four regions.
