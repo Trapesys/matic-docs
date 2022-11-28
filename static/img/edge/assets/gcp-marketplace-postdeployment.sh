@@ -85,8 +85,7 @@ do
                      echo " "
                      echo -n "Provide a domain or subdomain for which you want to create the certificate. Kindly don't give wildcard(*.example.com).GCP doesn't support it. Ex: example.com or www.example.com etc : "
                      read DOMAIN_SUBDOMAINS_LIST
-                     gcloud compute ssl-certificates create 
-"$SSL_CERT_NAME" --domains="$DOMAIN_SUBDOMAINS_LIST" --global
+                     gcloud compute ssl-certificates create "$SSL_CERT_NAME" --domains="$DOMAIN_SUBDOMAINS_LIST" --global
                   fi
               else                                   # If condition to check if the user passed yes or no to SSL certificate ends here
                 echo " "
