@@ -1,7 +1,7 @@
 ---
 id: gcp-marketplace-deployment
 title: GCP Marketplace Deployment
-description: "Deploy Polygon Edge network using GCP Marketplace offering."
+description: Deploy Polygon Edge network using Google Cloud Marketplace offering.
 keywords:
   - docs
   - polygon
