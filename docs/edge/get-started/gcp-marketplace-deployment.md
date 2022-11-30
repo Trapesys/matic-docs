@@ -12,11 +12,13 @@ keywords:
   - google cloud
 ---
 
-# GCP Marketplace Deployment & Post Deployment Script Manual
+# Google Cloud Marketplace Deployment & Post Deployment Script Manual
 
-## Points to be remembered when deploying the Polygon Edge product from Google Marketplace
+## Before We Start
 
-- This product is offered in the form of  four node architecture. Four nodes spanning across four availability zones spanning two or more regions gives higher tolerance in case of any issues with the either availability zone or region.
+Here are a few quick pointers to keep in mind while deploying the Polygon Edge network from [Google Cloud Marketplace](https://cloud.google.com/marketplace).
+
+- This product is offered in the form of four node architecture. Four nodes spanning across four availability zones spanning two or more regions give higher tolerance in case of any issues with the either availability zone or region.
 - The customer can launch all the four nodes in a single region spanning multiple availability zones (or) can launch two nodes in one region and another two nodes in another region (or) can launch each node in one availability zone belonging to one region thus spanning across four regions.
 - There is a bootstrap node that gets provisioned as  part of the deployment process, performs its job and gets terminated. The rest of the four nodes Node1, Node2, Node3, Node4 serve the traffic.
 - Five service accounts will be created and they get attached to the five nodes. When you run the deployment for the first time from a marketplace in your GCP project, it is obvious that you won’t be having the service accounts with necessary roles.
@@ -99,7 +101,7 @@ The script is designed to either use an existing Managed Zone or create a new Ma
   ![](/img/edge/assets/images/image8.png)
 
 
-- The below screenshots show the created Managed zone and its name server details.
+- The below screenshots show the created Managed Zone and its name server details.
 
   ![](/img/edge/assets/images/image9.png)
 
