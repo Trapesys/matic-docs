@@ -47,7 +47,7 @@ module.exports = {
 
   delegate: ["maintain/delegate/delegate", "maintain/delegate/delegator-faq"],
 
-  govern: ["maintain/govern/governance-posv1"],
+  govern: ["maintain/govern/governance"],
 
   develop: [
     "develop/getting-started",
@@ -482,22 +482,13 @@ module.exports = {
       },
       items: [
         "develop/oracles/getting-started",
-        "develop/oracles/api3",
-        {
-          type: "category",
-          label: "Band Protocol",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-            "develop/oracles/bandchain",
-            "develop/oracles/bandstandarddataset",
-          ],
-        },
-        "develop/oracles/chainlink",
         "develop/oracles/optimisticoracle",
+        "develop/oracles/chainlink",
         "develop/oracles/razor",
+        "develop/oracles/bandchain",
+        "develop/oracles/bandstandarddataset",
         "develop/oracles/tellor",
+        "develop/oracles/api3",
       ],
     },
     {
@@ -874,19 +865,7 @@ module.exports = {
     "avail/architecture/avail-system-overview",
     "avail/architecture/avail-consensus",
     "avail/how-tos/avail-quick-start",
-    {
-      type: "category",
-      label: "Operate a Node",
-      link: {
-        type: "generated-index",
-      },
-      items: [
-        "avail/node/avail-node-management",
-        "avail/node/avail-validator",
-        "avail/node/avail-data-avail",
-        "avail/node/avail-light-client-da",
-      ],
-    },
+    "avail/node/avail-node-management",
     "avail/faq",
   ],
 
@@ -918,7 +897,7 @@ module.exports = {
           link: {
             type: "doc",
             id: "miden/user_docs/assembly/main"
-          },
+          }, 
           items: [
             "miden/user_docs/assembly/code_organization",
             "miden/user_docs/assembly/flow_control",
@@ -935,12 +914,12 @@ module.exports = {
           link: {
             type: "doc",
             id: "miden/user_docs/stdlib/main"
-          },
+          }, 
           items: [
             "miden/user_docs/stdlib/crypto/hashes",
             "miden/user_docs/stdlib/math/u64",
             "miden/user_docs/stdlib/sys"
-          ]
+          ]  
         }
       ]
     },
@@ -1001,22 +980,12 @@ module.exports = {
     },
     "miden/background"
   ],
-
+  
   zkEVM: [
     "zkEVM/develop",
     "zkEVM/overview",
     "zkEVM/proof-of-efficiency",
-    {
-      type: "category",
-      label: "zkNode",
-      link: {
-        type: "generated-index"
-      },
-      items:[
-        "zkEVM/zknode/overview",
-        "zkEVM/zknode/setup-local-node"
-      ]
-    },
+    "zkEVM/zkNode",
     "zkEVM/Architecture/zkProver",
     "zkEVM/lx-ly-bridge",
     {
@@ -1152,12 +1121,11 @@ module.exports = {
     "faq/widget-faq",
   ],
 
-// #####################################################################
-
   edge: [
+    "edge/overview",
     {
       type: "category",
-      label: "Quick start",
+      label: "Get started",
       link: {
         type: "generated-index",
       },
@@ -1168,68 +1136,96 @@ module.exports = {
         "edge/get-started/cli-commands",
         "edge/get-started/json-rpc-commands",
         "edge/get-started/terraform-aws-deployment",
-        "edge/get-started/gcp-marketplace-deployment",
-        "edge/overview",
       ],
     },
     {
       type: "category",
-      label: "Core components",
+      label: "Configuration",
+      link: {
+        type: "generated-index",
+      },
+      items: [
+        "edge/configuration/sample-config",
+        "edge/configuration/manage-private-keys",
+        "edge/configuration/prometheus-metrics",
+        {
+          type: "category",
+          label: "Secret Managers",
+          link: {
+            type: "generated-index",
+          },
+          items: [
+            "edge/configuration/secret-managers/set-up-aws-ssm",
+            "edge/configuration/secret-managers/set-up-gcp-secrets-manager",
+            "edge/configuration/secret-managers/set-up-hashicorp-vault",
+          ],
+        },
+      ],
+    },
+    "edge/validator-hosting",
+    {
+      type: "category",
+      label: "Working with a node",
+      link: {
+        type: "generated-index",
+      },
+      items: [
+        "edge/working-with-node/query-json-rpc",
+        "edge/working-with-node/query-operator-info",
+        "edge/working-with-node/backup-restore",
+      ],
+    },
+    {
+      type: "category",
+      label: "Consensus",
+      link: {
+        type: "generated-index",
+      },
+      items: [
+        "edge/consensus/poa",
+        "edge/consensus/pos-concepts",
+        "edge/consensus/pos-stake-unstake",
+        "edge/consensus/migration-to-pos",
+        "edge/consensus/bls",
+      ],
+    },
+    {
+      type: "category",
+      label: "Additional features",
+      link: {
+        type: "generated-index",
+      },
+      items: [
+        {
+          type: "category",
+          label: "Chainbridge",
+          link: {
+            type: "generated-index",
+          },
+          items: [
+            "edge/additional-features/chainbridge/overview",
+            "edge/additional-features/chainbridge/definitions",
+            "edge/additional-features/chainbridge/setup",
+            "edge/additional-features/chainbridge/setup-erc20-transfer",
+            "edge/additional-features/chainbridge/setup-erc721-transfer",
+            "edge/additional-features/chainbridge/use-case-erc20-bridge",
+            "edge/additional-features/chainbridge/use-case-erc721-bridge",
+          ],
+        },
+        "edge/additional-features/stress-testing",
+        "edge/additional-features/blockscout",
+        "edge/additional-features/permission-contract-deployment",
+        "edge/additional-features/predeployment",
+      ],
+    },
+    {
+      type: "category",
+      label: "Architecture",
       link: {
         type: "generated-index",
       },
       items: [
         "edge/architecture/overview",
-        {
-          type: "category",
-          label: "Networking",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-          ],
-        },
-        {
-          type: "category",
-          label: "Consensus",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-            "edge/consensus/poa",
-            "edge/consensus/pos-concepts",
-            "edge/consensus/pos-stake-unstake",
-            "edge/consensus/migration-to-pos",
-            "edge/consensus/bls",
-          ],
-        },
-        {
-          type: "category",
-          label: "Block production",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-          ],
-        },
-        {
-          type: "category",
-          label: "Validation",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-          ],
-        },
-        {
-          type: "category",
-          label: "Security",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-          ],
-        },
         {
           type: "category",
           label: "Modules",
@@ -1251,145 +1247,6 @@ module.exports = {
             "edge/architecture/modules/other-modules",
           ],
         },
-        {
-          type: "category",
-          label: "Additional features",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-            {
-              type: "category",
-              label: "Chainbridge",
-              link: {
-                type: "generated-index",
-              },
-              items: [
-                "edge/additional-features/chainbridge/overview",
-                "edge/additional-features/chainbridge/definitions",
-                "edge/additional-features/chainbridge/setup",
-                "edge/additional-features/chainbridge/setup-erc20-transfer",
-                "edge/additional-features/chainbridge/setup-erc721-transfer",
-                "edge/additional-features/chainbridge/use-case-erc20-bridge",
-                "edge/additional-features/chainbridge/use-case-erc721-bridge",
-              ],
-            },
-            "edge/additional-features/stress-testing",
-            "edge/additional-features/blockscout",
-            "edge/additional-features/permission-contract-deployment",
-            "edge/additional-features/predeployment",
-          ],
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Operate a node",
-      link: {
-        type: "generated-index",
-      },
-      items: [
-        "edge/get-started/installation",
-        "edge/get-started/set-up-ibft-locally",
-        "edge/get-started/set-up-ibft-on-the-cloud",
-        "edge/get-started/cli-commands",
-        "edge/get-started/terraform-aws-deployment",
-        {
-          type: "category",
-          label: "Configuration",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-            "edge/configuration/sample-config",
-            "edge/configuration/manage-private-keys",
-            "edge/configuration/prometheus-metrics",
-            {
-              type: "category",
-              label: "Secret Managers",
-              link: {
-                type: "generated-index",
-              },
-              items: [
-                "edge/configuration/secret-managers/set-up-aws-ssm",
-                "edge/configuration/secret-managers/set-up-gcp-secrets-manager",
-                "edge/configuration/secret-managers/set-up-hashicorp-vault",
-              ],
-            },
-          ],
-        },
-        {
-          type: "category",
-          label: "Work with a node",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-            "edge/working-with-node/query-json-rpc",
-            "edge/working-with-node/query-operator-info",
-            "edge/working-with-node/backup-restore",
-          ],
-        },
-        {
-          type: "category",
-          label: "Run a validator",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-            "edge/validator-hosting",
-          ],
-        },
-        {
-          type: "category",
-          label: "Performance Reports",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-            "edge/performance-reports/overview",
-            {
-              type: "category",
-              label: "Test History",
-              link: {
-                type: "generated-index",
-              },
-              items: [
-                "edge/performance-reports/test-history/test-2022-07-04",
-                "edge/performance-reports/test-history/test-2022-03-23",
-                "edge/performance-reports/test-history/test-2022-03-02",
-                "edge/performance-reports/test-history/test-2022-01-21",
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "JSON RPC Commands",
-      link: {
-        type: "generated-index",
-      },
-      items: [
-        "edge/api/json-rpc-eth",
-        "edge/api/json-rpc-net",
-        "edge/api/json-rpc-web3",
-        "edge/api/json-rpc-txpool",
-      ],
-    },
-    {
-      type: "category",
-      label: "FAQs",
-      link: {
-        type: "generated-index",
-      },
-      items: [
-        "edge/troubleshooting",
-        "edge/faq/validators",
-        "edge/faq/gas",
-        "edge/faq/contracts",
-        "edge/faq/tokens",
       ],
     },
     {
@@ -1403,6 +1260,43 @@ module.exports = {
         "edge/community/report-bug",
       ],
     },
+    {
+      type: "category",
+      label: "Performance Reports",
+      link: {
+        type: "generated-index",
+      },
+      items: [
+        "edge/performance-reports/overview",
+        {
+          type: "category",
+          label: "Test History",
+          link: {
+            type: "generated-index",
+          },
+          items: [
+            "edge/performance-reports/test-history/test-2022-07-04",
+            "edge/performance-reports/test-history/test-2022-03-23",
+            "edge/performance-reports/test-history/test-2022-03-02",
+            "edge/performance-reports/test-history/test-2022-01-21",
+          ],
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "FAQ",
+      link: {
+        type: "generated-index",
+      },
+      items: [
+        "edge/faq/validators",
+        "edge/faq/gas",
+        "edge/faq/contracts",
+        "edge/faq/tokens",
+      ],
+    },
+    "edge/troubleshooting",
   ],
 
   polygonid: [
